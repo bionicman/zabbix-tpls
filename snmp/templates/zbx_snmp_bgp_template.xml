@@ -1,0 +1,2274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>2.0</version>
+    <date>2016-10-13T14:30:42Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template SNMP Cisco BGP</template>
+            <name>Template SNMP Cisco BGP</name>
+            <description>Works with BGP4-MIB and CISCO-BGP4-MIB files.&#13;
+&#13;
+Use {$SNMP_COMMUNITY} macro.</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>BGP peers</name>
+                </application>
+            </applications>
+            <items/>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>BGP peers discovery</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>BGP4-MIB::bgpPeerIdentifier</snmp_oid>
+                    <key>bgpPeerIdentifier</key>
+                    <delay>30</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions/>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description>The rule will discover all BGP4 peers on router.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} admin status</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>BGP4-MIB::bgpPeerAdminStatus.{#SNMPINDEX}</snmp_oid>
+                            <key>bgpPeerAdminStatus[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>BGP Peer Admin Status</name>
+                            </valuemap>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} ASN</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>BGP4-MIB::bgpPeerRemoteAs.{#SNMPINDEX}</snmp_oid>
+                            <key>bgpPeerRemoteAs[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} established time</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>BGP4-MIB::bgpPeerFsmEstablishedTime.{#SNMPINDEX}</snmp_oid>
+                            <key>bgpPeerFsmEstablishedTime[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>uptime</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 multicast prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv4.multicast</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 multicast prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv4.multicast</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 multicast prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv4.multicast</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 multicast prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv4.multicast</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 multicast prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv4.multicast</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 unicast prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv4.unicast</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 unicast prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv4.unicast</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 unicast prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv4.unicast</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 unicast prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv4.unicast</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv4 unicast prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv4.unicast</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 multicast prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv6.multicast</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 multicast prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv6.multicast</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 multicast prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv6.multicast</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 multicast prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv6.multicast</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 multicast prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv6.multicast</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 unicast prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv6.unicast</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 unicast prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv6.unicast</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 unicast prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv6.unicast</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 unicast prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv6.unicast</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} IPv6 unicast prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv6.unicast</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} peer state</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>BGP4-MIB::bgpPeerState.{#SNMPINDEX}</snmp_oid>
+                            <key>bgpPeerState[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>BGP Peer State</name>
+                            </valuemap>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} remote address</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>BGP4-MIB::bgpPeerRemoteAddr.{#SNMPINDEX}</snmp_oid>
+                            <key>bgpPeerRemoteAddr[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv4 prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv4.vpn</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv4 prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv4.vpn</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv4 prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv4.vpn</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv4 prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv4.vpn</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv4 prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv4.vpn</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesVpnv4[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv6 prefixes accepted</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAcceptedPrefixes.{#SNMPINDEX}.ipv6.vpn</snmp_oid>
+                            <key>cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>Number of accepted route prefixes on this connection,&#13;
+which belong to an address family.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv6 prefixes advertised</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerAdvertisedPrefixes.{#SNMPINDEX}.ipv6.vpn</snmp_oid>
+                            <key>cbgpPeerAdvertisedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is advertised&#13;
+on this connection. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv6 prefixes denied</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerDeniedPrefixes.{#SNMPINDEX}.ipv6.vpn</snmp_oid>
+                            <key>cbgpPeerDeniedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix, which&#13;
+belongs to an address family, received on this&#13;
+connection is denied. It is initialized to zero when&#13;
+the connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv6 prefixes suppressed</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerSuppressedPrefixes.{#SNMPINDEX}.ipv6.vpn</snmp_oid>
+                            <key>cbgpPeerSuppressedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family is suppressed&#13;
+from being sent on this connection. It is&#13;
+initialized to zero when the connection is undergone&#13;
+a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>BGP peer {#SNMPINDEX} VPNv6 prefixes withdrawn</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>CISCO-BGP4-MIB::cbgpPeerWithdrawnPrefixes.{#SNMPINDEX}.ipv6.vpn</snmp_oid>
+                            <key>cbgpPeerWithdrawnPrefixesVpnv6[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>Prefixes</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description>This counter is incremented when a route prefix,&#13;
+which belongs to an address family, is withdrawn on&#13;
+this connection. It is initialized to zero when the&#13;
+connection is undergone a hard reset.</description>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP peers</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=1 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} administratively down.</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv4 multicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv4 unicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv6 multicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv6 unicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of VPNv4 prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].avg(86400)}</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of VPNv6 prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv4 multicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv4 unicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv6 multicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv6 unicast prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received VPNv4 prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}=0</expression>
+                            <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received VPNv6 prefixes on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last()}&lt;&gt;6 and {Template SNMP Cisco BGP:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=2 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
+                            <name>BGP peer {ITEM.VALUE3} from ASN {ITEM.VALUE4} down and has state {ITEM.VALUE1}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                    </trigger_prototypes>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in IPv4 multicast address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in IPv4 unicast address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in IPv6 multicast address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in IPv6 unicast address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in VPNv4 address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesVpnv4[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesVpnv4[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
+                            <name>BGP informations for peer {#SNMPINDEX} in VPNv6 address-family</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>2</drawtype>
+                                    <color>0000C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerAdvertisedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>2</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerDeniedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>3</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C800C8</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerSuppressedPrefixesVpnv6[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>4</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C8C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>Template SNMP Cisco BGP</host>
+                                        <key>cbgpPeerWithdrawnPrefixesVpnv6[{#SNMPINDEX}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                    <host_prototypes/>
+                </discovery_rule>
+            </discovery_rules>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+</zabbix_export>
