@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2016-10-13T14:30:42Z</date>
+    <date>2016-11-03T13:45:51Z</date>
     <groups>
         <group>
             <name>Templates</name>
         </group>
+        <group>
+            <name>TM Templates</name>
+        </group>
     </groups>
     <templates>
         <template>
-            <template>Template SNMP Cisco BGP</template>
-            <name>Template SNMP Cisco BGP</name>
+            <template>Template SNMP Cisco router</template>
+            <name>Template SNMP Cisco router</name>
             <description>Works with BGP4-MIB and CISCO-BGP4-MIB files.&#13;
 &#13;
 Use {$SNMP_COMMUNITY} macro.</description>
@@ -18,13 +21,106 @@ Use {$SNMP_COMMUNITY} macro.</description>
                 <group>
                     <name>Templates</name>
                 </group>
+                <group>
+                    <name>TM Templates</name>
+                </group>
             </groups>
             <applications>
                 <application>
                     <name>BGP peers</name>
                 </application>
+                <application>
+                    <name>Inventory</name>
+                </application>
             </applications>
-            <items/>
+            <items>
+                <item>
+                    <name>Device chassis PID</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>ENTITY-MIB::entPhysicalModelName.1</snmp_oid>
+                    <key>entPhysicalModelName</key>
+                    <delay>30</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>1</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>28</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Inventory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+                <item>
+                    <name>Device chassis S/N</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>ENTITY-MIB::entPhysicalSerialNum.1</snmp_oid>
+                    <key>entPhysicalSerialNum</key>
+                    <delay>30</delay>
+                    <history>90</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>1</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>8</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Inventory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                </item>
+            </items>
             <discovery_rules>
                 <discovery_rule>
                     <name>BGP peers discovery</name>
@@ -1655,7 +1751,7 @@ connection is undergone a hard reset.</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=1 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=1 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} administratively down.</name>
                             <url/>
                             <status>0</status>
@@ -1664,7 +1760,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv4 multicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1673,7 +1769,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv4 unicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1682,7 +1778,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv6 multicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1691,7 +1787,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of IPv6 unicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1700,7 +1796,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of VPNv4 prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1709,7 +1805,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].avg(86400)}</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}&lt;0.8*{Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].avg(86400)}</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has lost more than 20% of VPNv6 prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1718,7 +1814,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv4 multicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1727,7 +1823,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv4 unicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1736,7 +1832,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv6 multicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1745,7 +1841,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received IPv6 unicast prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1754,7 +1850,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received VPNv4 prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1763,7 +1859,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}=0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last(0)}=6 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}].last(0)}=0</expression>
                             <name>BGP peer {ITEM.VALUE2} from ASN {ITEM.VALUE3} has not received VPNv6 prefixes on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -1772,7 +1868,7 @@ connection is undergone a hard reset.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template SNMP Cisco BGP:bgpPeerState[{#SNMPINDEX}].last()}&lt;&gt;6 and {Template SNMP Cisco BGP:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=2 and {Template SNMP Cisco BGP:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco BGP:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
+                            <expression>{Template SNMP Cisco router:bgpPeerState[{#SNMPINDEX}].last()}&lt;&gt;6 and {Template SNMP Cisco router:bgpPeerAdminStatus[{#SNMPINDEX}].last()}=2 and {Template SNMP Cisco router:bgpPeerRemoteAddr[{#SNMPINDEX}].strlen()}&gt;0 and {Template SNMP Cisco router:bgpPeerRemoteAs[{#SNMPINDEX}].strlen()}&gt;0</expression>
                             <name>BGP peer {ITEM.VALUE3} from ASN {ITEM.VALUE4} down and has state {ITEM.VALUE1}</name>
                             <url/>
                             <status>0</status>
@@ -1808,7 +1904,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1820,7 +1916,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1832,7 +1928,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1844,7 +1940,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1856,7 +1952,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesIpv4Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1888,7 +1984,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1900,7 +1996,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1912,7 +2008,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1924,7 +2020,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1936,7 +2032,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesIpv4Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1968,7 +2064,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1980,7 +2076,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -1992,7 +2088,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2004,7 +2100,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2016,7 +2112,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesIpv6Multicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2048,7 +2144,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2060,7 +2156,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2072,7 +2168,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2084,7 +2180,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2096,7 +2192,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesIpv6Unicast[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2128,7 +2224,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesVpnv4[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2140,7 +2236,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesVpnv4[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2152,7 +2248,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesVpnv4[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2164,7 +2260,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesVpnv4[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2176,7 +2272,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesVpnv4[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2208,7 +2304,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAcceptedPrefixesVpnv6[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2220,7 +2316,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerAdvertisedPrefixesVpnv6[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2232,7 +2328,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerDeniedPrefixesVpnv6[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2244,7 +2340,7 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerSuppressedPrefixesVpnv6[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
@@ -2256,13 +2352,453 @@ connection is undergone a hard reset.</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>Template SNMP Cisco BGP</host>
+                                        <host>Template SNMP Cisco router</host>
                                         <key>cbgpPeerWithdrawnPrefixesVpnv6[{#SNMPINDEX}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
                         </graph_prototype>
                     </graph_prototypes>
+                    <host_prototypes/>
+                </discovery_rule>
+                <discovery_rule>
+                    <name>Inventory discovery</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <snmp_oid>ENTITY-MIB::entPhysicalClass</snmp_oid>
+                    <key>entPhysicalDescrInv</key>
+                    <delay>30</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^module|^9</value>
+                                <operator>8</operator>
+                                <formulaid>B</formulaid>
+                            </condition>
+                            <condition>
+                                <macro>{#SNMPVALUE}</macro>
+                                <value>^chassis|^3</value>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
+                    <lifetime>30</lifetime>
+                    <description>ENTITY-MIB required</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} class</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalClass.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalClassInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap>
+                                <name>SNMP physical class (entPhysicalClass)</name>
+                            </valuemap>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} description</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalDescr.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalDescrInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} FW revision</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalFirmwareRev.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalFirmwareRevInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} HW revision</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalHardwareRev.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalHardwareRevInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} manufacturer</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalMfgName.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalMfgNameInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} model</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalModelName.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalModelNameInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} name</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalName.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalNameInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} serial number</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalSerialNum.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalSerialNumInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Inventory {#SNMPINDEX} SW revision</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>ENTITY-MIB::entPhysicalSoftwareRev.{#SNMPINDEX}</snmp_oid>
+                            <key>entPhysicalSoftwareRevInv[{#SNMPINDEX}]</key>
+                            <delay>30</delay>
+                            <history>90</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Inventory</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes/>
+                    <graph_prototypes/>
                     <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
